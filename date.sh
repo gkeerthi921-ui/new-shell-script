@@ -1,4 +1,7 @@
 #!/bin/bash
 
-DATE = $(date)
-echo "time: $DATE"
+start_time=$(date +%s)
+sleep 10
+end_time=$(date +%s)
+totaltime=$(($end_time-$start_time))
+echo "time: $totaltime "
