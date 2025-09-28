@@ -5,12 +5,12 @@ G="\e[32m"
 y="\e[33m"
 N="\e[0m"
 USERID=$(id -u)
-if [USERID -ne 0];then
+if [ "$USERID" -ne 0 ];then
 echo "need root access"
 exit 1
 fi
 VALIDATE(){
-    if [$1 -ne 0];then
+    if [ $1 -ne 0 ];then
     echo -e "installation of $2 ..$R is failure $N"
     exit 1
     else
@@ -18,7 +18,7 @@ VALIDATE(){
     fi
 }
 dnf list install mysql
-if [$? -ne 0];then
+if [ $? -ne 0 ];then
 dnf install mysql -y
 VALIDATE $? "mysql"
 else
