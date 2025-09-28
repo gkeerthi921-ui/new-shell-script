@@ -5,10 +5,10 @@ R="\e[31m"
 G="\e[32m"
 y="\e[33m"
 N="\e[0m"
-logs_folder= "/var/logs/new-shell-script"
+logs_folder="/var/logs/new-shell-script"
 script_name=$(echo $0 | cut -d "." -f1)
-log_file= "$logs_folder + $script_name.log"
-mkdir -p $log-folder
+log_file="$logs_folder + $script_name.log"
+mkdir -p $logs_folder
 echo "script started at: $(date)" |tee -a $log_file
 if [ "$USERID -ne 0"];then
 echo "need root access"
@@ -24,22 +24,22 @@ VALIDATE(){
 }
 dnf list install mysql
 if [ $? -ne 0 ];then
-dnf install mysql -y
-VALIDATE $? "mysql" |tee -a $log_file
+    dnf install mysql -y
+    VALIDATE $? "mysql" |tee -a $log_file
 else
-echo -e " mysql exist ..$y skip $N" |tee -a $log_file
+    echo -e " mysql exist ..$y skip $N" |tee -a $log_file
 fi
 dnf ilst install nginx
 if [ $? -ne 0 ];then
-dnf install nginx -y
-VALIDATE $? "nginx" |tee -a $log_file
+    dnf install nginx -y
+    VALIDATE $? "nginx" |tee -a $log_file
 else
-echo -e " nginx exist ..$y skip $N" |tee -a $log_file
+    echo -e " nginx exist ..$y skip $N" |tee -a $log_file
 fi
 dnf list install python3
 if[ $? -ne 0 ];then
-dnf install python3 -y
-VALIDATE $? "python3" |tee -a $log_file
+    dnf install python3 -y
+    VALIDATE $? "python3" |tee -a $log_file
 else 
-echo -e "python3 exist .. $y skip $N |tee -a $log_file
+    echo -e "python3 exist .. $y skip $N |tee -a $log_file
 fi
