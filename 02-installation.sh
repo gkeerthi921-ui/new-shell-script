@@ -1,12 +1,12 @@
 #!/bin/bash
 
 USERID=$(id -u)
-if [USERID -ne 0];then
+if  [ "$USERID" -ne 0 ];then
 echo "need root access"
 exit 1
 fi
 VALIDATE(){
-    if [$1 -ne 0];then
+    if [ $1 -ne 0 ];then
     echo "installation of $2 is failure"
     exit 1
     else
