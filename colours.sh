@@ -25,14 +25,14 @@ else
 echo -e " mysql exist ..$y skip $N"
 fi
 dnf ilst install nginx
-if [$? -ne 0];then
+if [ $? -ne 0 ];then
 dnf install nginx -y
 VALIDATE $? "nginx"
 else
 echo -e " nginx exist ..$y skip $N"
 fi
 dnf list install python3
-if[ $? -ne 0];then
+if[ $? -ne 0 ];then
 dnf install python3 -y
 VALIDATE $? "python3"
 else 
