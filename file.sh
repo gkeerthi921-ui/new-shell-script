@@ -41,5 +41,5 @@ if [ $? -ne 0 ];then
     dnf install python3 -y
     VALIDATE $? "python3" |tee -a $log_file
 else 
-    echo -e "python3 exist .. $y skip $N |tee -a $log_file
+    echo -e "python3 exist .. $y skip $N" |tee -a $log_file
 fi
