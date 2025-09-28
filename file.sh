@@ -37,7 +37,7 @@ else
     echo -e " nginx exist ..$y skip $N" |tee -a $log_file
 fi
 dnf list install python3
-if[ $? -ne 0 ];then
+if [ $? -ne 0 ];then
     dnf install python3 -y
     VALIDATE $? "python3" |tee -a $log_file
 else 
